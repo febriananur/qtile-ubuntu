@@ -103,7 +103,7 @@ primary_widgets = [
     
     powerline('light', 'color1'),
 
-    icon(bg="light", text='󰲐 '),
+    icon(bg="light", text=' '),
     
     widget.Volume(**base(bg='light')),
 

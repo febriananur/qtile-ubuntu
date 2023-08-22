@@ -3,10 +3,10 @@
 # https://github.com/antoniosarosi/dotfiles
 
 # Qtile keybindings
-
+import os
 from libqtile.config import Key
 from libqtile.command import lazy
-
+from libqtile import extension
 
 mod = "mod4"
 
@@ -50,13 +50,14 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ App Configs ------------
 
     # Menu
-    ([mod], "m", lazy.spawn("rofi -show drun")),
+    # ([mod], "m", lazy.spawn("rofi -show drun")),
 
     # Window Nav
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
-
+    ([mod, "shift"], "c", lazy.spawn("subl")),
+    ([mod], "m", lazy.spawn(os.path.expanduser("~/.config/rofi/launchers/type-2/launcher.sh"))),
     # Browser
-    ([mod], "b", lazy.spawn("firefox")),
+    ([mod], "b", lazy.spawn("brave-browser")),
 
     # File Explorer
     ([mod], "e", lazy.spawn("thunar")),
@@ -88,4 +89,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Brightness
     ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
     ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+
+    #dmenu
+    ([mod], "x", lazy.spawn("dmenu_run -l 20 -c")),
 ]]
